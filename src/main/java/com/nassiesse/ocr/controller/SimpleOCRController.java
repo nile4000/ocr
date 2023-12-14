@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import org.apache.pdfbox.Loader;
+// import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.ImageType;
 import org.apache.pdfbox.rendering.PDFRenderer;
@@ -33,7 +33,8 @@ public class SimpleOCRController {
 		try {
 
 			// Load file into PDFBox class
-			PDDocument document = Loader.loadPDF(file.getBytes());// DDocument.load(file.getBytes());
+			PDDocument document = PDDocument.load(file.getBytes());// Loader.loadPDF(file.getBytes());//
+																	// DDocument.load(file.getBytes());
 			PDFTextStripper stripper = new PDFTextStripper();
 			String strippedText = stripper.getText(document);
 

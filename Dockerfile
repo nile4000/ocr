@@ -2,21 +2,21 @@
 #Run: docker run -t -i -p 8080:8080 nassiesse/simple-java-ocr
 
 
-FROM openjdk:8-jre-alpine
+FROM openjdk:11-jdk-slim
 
-RUN apk update
+# RUN apk update
 
 # Install tesseract library
-RUN apk add --no-cache tesseract-ocr
+# RUN apk add --no-cache tesseract-ocr
 
 # Download last language package
-RUN mkdir -p /usr/share/tessdata
-ADD https://github.com/tesseract-ocr/tessdata/blob/main/deu.traineddata /usr/share/tessdata/ita.traineddata
+# RUN mkdir -p /usr/share/tessdata
+# ADD https://github.com/tesseract-ocr/tessdata/blob/main/deu.traineddata /usr/share/tessdata/ita.traineddata
 
 
 # Check the installation status
-RUN tesseract --list-langs    
-RUN tesseract -v  
+# RUN tesseract --list-langs    
+# RUN tesseract -v  
 
 # Set the location of the jar
 ENV MICROSERVICE_HOME /usr/microservices
